@@ -45,7 +45,7 @@ for row in s1.iter_rows():
 data = []
 
 for key, value in clients.items():
-    data.append(dict(storeId=str(key), tos=value['tos'], aov=value['aov'],
+    data.append(dict(_id=str(key), tos=value['tos'], aov=value['aov'],
                      storeName=value['marketName'], tel=value['tel'], location=value['loc']))
 
 couch = couchdb.Server("http://127.0.0.1:5984/")
