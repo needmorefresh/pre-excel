@@ -1,7 +1,5 @@
-import json, couchdb
+import couchdb
 from openpyxl import load_workbook
-from cassandra.cluster import Cluster
-from cassandra.auth import PlainTextAuthProvider
 
 file = load_workbook('./excel/pre.xlsx', data_only=True)
 s1 = file['Sheet1']
