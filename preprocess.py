@@ -44,8 +44,6 @@ for row in s1.iter_rows():
             clients[marketNumber]['tos'][van[i]] = 0 if row[i].value == None else row[i].value
             clients[marketNumber]['aov'][van[i]] = int(''.join(row[i+1].value.split(','))) if row[i+1].value != None else 0
 
-print(f'{next(iter(clients))} : {clients[next(iter(clients))]}')
-
 data = []
 
 for key, value in clients.items():
@@ -57,17 +55,3 @@ db = couch["withpos_stores"]
 
 for row in data:
     db.save(row)
-
-## Let's Make JSON!!
-with open('./rawdata/data.json', 'w', encoding='utf-8') as f:
-    json.dump(data, f, indent='\t', ensure_ascii=False)
-
-'''
-cluster = Cluster(
-    contact_points=[
-        "localhost",
-    ],
-    auth_provider=PlainTextAuthProvider(username='scylla', password='your-awesome-password')
-)
-session = cluster.connect()
-'''
